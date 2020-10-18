@@ -17,7 +17,8 @@ public:
 	void NuevaPalabra();
 	void VerPalabra();
 	void ModificarPalabra();
-	void EliminarPalabra(); 	
+	void EliminarPalabra();
+	void MostrarPalabras();	
 };
 void pausa()
 {
@@ -27,9 +28,7 @@ void pausa()
 }
 void error()
 {
-    cout<<"No se pudo abrir el archivo de registros, asegurese que el archivo se encuentre en\n";
-    cout<<"la misma ubicaci\242n que el programa o que el archivo de texto se llame: \n";
-    cout<<"clientes.txt, si el archivo tiene otro nombre ren\242mbrelo al ya mencionado\n\n";
+    cout<<"Error";
 }
 void menu::menuP()
 {
@@ -41,7 +40,8 @@ void menu::menuP()
         cout<<"2. Buscar palabra"<<endl;
         cout<<"3. Modificar Palabra"<<endl;
         cout<<"4. Eliminar palabra"<<endl;
-        cout<<"5. Salir"<<endl;
+        cout<<"5. Mostrar todas las palabras registradas"<<endl;
+        cout<<"6. Salir"<<endl;
         cout<<"Opcion: ";
         cin>>opcion;
         system("cls");
@@ -68,10 +68,14 @@ void menu::menuP()
             break;
 
         case 5:
+        	MostrarPalabras();
             break;
+        
+        case 6:
+        	break;
         }
     }
-    while(opcion!=5);
+    while(opcion!=6);
 }
 
 
@@ -94,9 +98,9 @@ void menu::NuevaPalabra()
         getline(cin,funcionalidad);
         cout<<"\n\n";
        
-        escritura<<palabra<<"\n\n"<<traduccion<<"\n\n"<<funcionalidad<<"\n\n";
+        escritura<<palabra<<"\n"<<traduccion<<"\n"<<funcionalidad<<"\n";
 
-        cout<<"El registro se ha completado correctamente.\n\n";
+        cout<<"El registro se ha completado correctamente";
     }
 
     else
@@ -127,7 +131,7 @@ void menu::VerPalabra()
             if(vpalabra==palabra)
             {
                 encontrado=true;
-                cout<<"\n\nRegistro Encontrado\n\n";
+                cout<<"Registro Encontrado";
                 cout<<"Palabra: "<<palabra<<endl;
                 cout<<"Traduccion: "<<traduccion<<endl;
                 cout<<"Funcionalidad: "<<funcionalidad<<endl;
@@ -139,7 +143,7 @@ void menu::VerPalabra()
 
         if(encontrado==false)
         {
-            cout<<"No se encontro la palabra: "<<vpalabra<<"\n\n";
+            cout<<"No se encontro la palabra "<<vpalabra<<endl;
         }
     }
 
@@ -154,6 +158,34 @@ void menu::VerPalabra()
 void menu::ModificarPalabra(){
 }
 void menu::EliminarPalabra(){
+}
+
+void menu::MostrarPalabras(){
+	   int i=0;
+    ifstream lectura;
+    lectura.open("palabras.txt",ios::in);
+    if(lectura.is_open())
+    {
+        cout<<"Listado de todas las palabras registradas\n\n"<<endl;
+        while(!lectura.eof())
+        {
+            i++;
+            getline(lectura,palabra);
+            getline(lectura,traduccion);
+            getline(lectura,funcionalidad);
+            cout<<"Palabra: "<<palabra<<endl;
+            cout<<"Traduccion: "<<traduccion<<endl;
+            cout<<"Funcionalidad: "<<funcionalidad<<endl;
+                cout<<"\n\n";
+        }
+            cout<<"Hay un total de "<<i<<" registros encontrados"<<endl;
+    }
+    else
+    {
+        error();
+    }
+    lectura.close();
+    pausa();
 }
 
 int main()
