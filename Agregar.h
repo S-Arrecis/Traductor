@@ -3,13 +3,93 @@
 #include <string.h>
 using namespace std;
 
+//variables para los archivos de texto
 fstream P_Ingles,P_Espa,Palabras;
-void abrir(){
+
+void eliminarTraduccion(fstream &P_Espa , string borrar){
+    string contenido;
+    fstream aux;
+    aux.open("temp.txt",ios::app);
+    //P_Espa >> borrar;
+
+    P_Espa.open("traduccion.txt",ios::in);
+	if (P_Espa.fail()){
+		cout<<"No es posible abrir el archivo";
+		exit(1);
+
+    }
+    else{
+        while(!P_Espa.eof()){
+            
+            getline(P_Espa,contenido);
+            //cout<<contenido<<endl;
+            if(contenido == borrar){
+                
+                /*
+                Palabras<<"";
+                Palabras<<"";
+                Palabras<<"";
+                exit(1);*/
+            }
+            else{
+                aux<<contenido<<endl;
+            }
+        }
+    }
+
+    P_Espa.close();
+    aux.close();
+    remove("traduccion.txt");
+    rename("temp.txt","traduccion.txt");
+
+}
+
+
+void eliminarIngles(fstream &P_Ingles , string borrar){
+    string contenido;
+    fstream aux;
+    aux.open("tempIng.txt",ios::app);
+
+    P_Ingles.open("Ingles.txt",ios::in);
+	if (P_Ingles.fail()){
+		cout<<"No es posible abrir el archivo";
+		exit(1);
+
+    }
+    else{
+        while(!P_Ingles.eof()){
+            
+            getline(P_Ingles,contenido);
+            //cout<<contenido<<endl;
+            if(contenido == borrar){
+                
+                /*
+                Palabras<<"";
+                Palabras<<"";
+                Palabras<<"";
+                exit(1);*/
+            }
+            else{
+                aux<<contenido<<endl;
+            }
+        }
+    }
+
+    P_Ingles.close();
+    aux.close();
+    remove("Ingles.txt");
+    rename("tempIng.txt","Ingles.txt");
+
+}
+
+
+//abrir el archivo de texto con las palabras en ingles
+void abrirIngles(){
 	string contenido;
     int cont=0;
     string aux;
     P_Ingles >> aux;
-	P_Ingles.open("ingles//Ingles.txt",ios::in);
+	P_Ingles.open("Ingles.txt",ios::in);
 	if (P_Ingles.fail()){
 		cout<<"No es posible abrir el archivo";
 		exit(1);
@@ -20,23 +100,60 @@ void abrir(){
 
             
             getline(P_Ingles,contenido);
-			cout<<contenido<<endl;
-            cont++;
+			
+             if(contenido !=""){
+                cout<<contenido<<endl;
+                cont++;
+            }
+            else{
+			//cont++;
+            } 
               
         }
         
 	}
-    cout<<"Total de palabras> "<<cont-1<<endl;
+    cout<<"Total de palabras> "<<cont<<endl;
 	P_Ingles.close();
 }
 
-void buscar1(fstream &P_Espa,int lugar,string ing){
+
+void abrirTraduccion(){
+	string contenido;
+    int cont=0;
+    string aux;
+    //P_Ingles >> aux;
+	P_Espa.open("traduccion.txt",ios::in);
+	if (P_Espa.fail()){
+		cout<<"No es posible abrir el archivo";
+		exit(1);
+	}else{
+         
+         
+		while(!P_Espa.eof()){
+
+            
+            getline(P_Espa,contenido);
+            if(contenido !=""){
+                cout<<contenido<<endl;
+                cont++;
+            }
+            else{
+			//cont++;
+            }  
+        }
+        
+	}
+    cout<<"Total de palabras> "<<cont<<endl;
+	P_Espa.close();
+}
+
+void buscarTraduccion(fstream &P_Espa,int lugar,string ing){
 	string contenido;
     int cont=0,pos=0;
     bool encontrar = false;
     string aux;
     
-	P_Espa.open("traduccion//traduccion.txt",ios::in);
+	P_Espa.open("traduccion.txt",ios::in);
 	if (P_Espa.fail()){
 		cout<<"No es posible abrir el archivo";
 		exit(1);
@@ -67,13 +184,13 @@ void buscar1(fstream &P_Espa,int lugar,string ing){
 
 
 
-void buscar(fstream &P_Ingles,string busqueda){
+void buscarIngles(fstream &P_Ingles,string busqueda){
 	string contenido;
     int cont=0,pos=0;
     bool encontrar = false;
     string aux;
     
-	P_Ingles.open("ingles//Ingles.txt",ios::in);
+	P_Ingles.open("Ingles.txt",ios::in);
 	if (P_Ingles.fail()){
 		cout<<"No es posible abrir el archivo";
 		exit(1);
@@ -84,20 +201,18 @@ void buscar(fstream &P_Ingles,string busqueda){
 
             
             getline(P_Ingles,contenido);
-			//cout<<contenido<<endl;
-            //cont++;
+
             if(contenido == busqueda){
                 pos = cont;
                 encontrar = true;
-                cout<<pos<<"\n\n"<<endl;
                 cont=0;
-                buscar1(P_Espa,pos,contenido);
+                buscarTraduccion(P_Espa,pos,contenido);
             }
             cont++;  
         }
         
 	}
-    cout<<"Total de palabras> "<<cont-1<<endl;
+    
 	P_Ingles.close();
 }
 
@@ -105,7 +220,7 @@ void buscar(fstream &P_Ingles,string busqueda){
 
     void iniciar(){
         /*
-        system("@echo off mkdir traduccion");
+        system("@echo off mkdir  traduccion");
         system("@echo off mkdir ingles");
         system("@echo off mkdir palabras");*/
         system(" mkdir traduccion");
@@ -113,8 +228,8 @@ void buscar(fstream &P_Ingles,string busqueda){
         system(" mkdir palabras");
     }
 
-    void agregarPalabras(string espa,string ing,string def){
-        Palabras.open("palabras//palabras.txt",ios::app);
+    void agregarPalabras(string ing,string espa,string def){
+        Palabras.open("palabras.txt",ios::app);
 
         if(Palabras.fail()){
             cout<<"No es posible agregar la palabra.\n"<<endl;
@@ -131,8 +246,8 @@ void buscar(fstream &P_Ingles,string busqueda){
         
     }
 
-    void agregarEspa(string espa){
-        P_Espa.open("traduccion//traduccion.txt",ios::app);
+    void agregarTraduccion(string espa){
+        P_Espa.open("traduccion.txt",ios::app);
 
         if(P_Espa.fail()){
             cout<<"No es posible agregar la palabra.\n"<<endl;
@@ -147,7 +262,7 @@ void buscar(fstream &P_Ingles,string busqueda){
     }
 
     void agregarIngles(string ing ){
-        P_Ingles.open("ingles//Ingles.txt",ios::app);
+        P_Ingles.open("Ingles.txt",ios::app);
 
         if(P_Ingles.fail()){
             cout<<"No es posible agregar la palabra.\n"<<endl;
