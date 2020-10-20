@@ -1,8 +1,0 @@
-/*
-    iniciar();
-    agregarPalabras("else","si no","no se que es pero es segunda opcion.");
-    agregarEspa("si no");
-    agregarIngles("else");
-    buscar(P_Ingles,"if");
-    abrir();
-*/
