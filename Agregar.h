@@ -6,6 +6,31 @@ using namespace std;
 //variables para los archivos de texto
 fstream P_Ingles,P_Espa,Palabras;
 
+void traducir(){
+    string coleccion[100],coleccionEspa[100],aux;
+    string palabra,letra,temporal;
+    int contador=0;
+
+    while (letra !="$"){
+        cin>>letra;
+        
+        palabra +=" ";
+        palabra += letra;
+        temporal+=letra;
+        coleccion[contador]=palabra;
+        palabra ="";
+        contador++;
+        
+    }
+     cout<<temporal<<"\n\n"<<endl;
+   
+
+   for(int i=0;i<contador;i++){
+      cout<<coleccion[i]<<endl;
+      //buscarIngles(P_Ingles,coleccion[i]);
+    }
+}
+
 void eliminarTraduccion(fstream &P_Espa , string borrar){
     string contenido;
     fstream aux;
@@ -168,8 +193,8 @@ void buscarTraduccion(fstream &P_Espa,int lugar,string ing){
             if(cont == lugar){
                 cout<<ing<<" = "<<contenido<<"  \t..."<<endl;
                 encontrar = true;
-                
-                exit(1);
+                break;
+                //exit(1);
             }
             cont++;  
         }
