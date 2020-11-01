@@ -3,6 +3,8 @@
 #include<iostream>
 #include<fstream>
 #include <windows.h>
+#include "Agregar.h"
+
 using namespace std;
 
 int menu(){
@@ -29,15 +31,22 @@ system("cls");
 	es.open("PAlabras.txt",ios::out|ios::app);
 	cout<<"Ingrese palabra en reservada"<<endl;
 	cin>>Pal;
+	fflush(stdin);
 	cout<<"Ingrese traducci�n"<<endl;
-	cin>>Tra;
+	getline(cin,Tra);
+
 		fflush(stdin);
 	cout<<"Ingrese la definici�n"<<endl;
 	getline(cin,Def);
 	
+	agregarIngles(Pal);
+	agregarTraduccion(Tra);
+	
 
 	
-	es<<Pal<<" "<<Tra<<" "<<Def<<endl;
+	es<<Pal<<endl;
+	es<<Tra<<endl;
+	es<<Def<<endl;
 	es.close();
 	 cout<< "****Los registros han sido a�adidos exitosamente*****"<<endl;
 	
@@ -45,7 +54,7 @@ system("cls");
 }
 
 void ver(ifstream &Lec){
-	system("cls");
+system("cls");
 	string pal;
 	string tra,tralong;
 	string def,deflong;
@@ -56,12 +65,11 @@ void ver(ifstream &Lec){
 			Lec>>tra;
 		
 			cout<<"Palabra en ingles: "<<pal<<endl;
-				cout<<"Palabra en espa�ol: "<<tra;
+				cout<<"Palabra en espaï¿½ol: "<<tra;
 				getline(Lec,tralong);
 					cout<<tralong<<endl;
-					
 						Lec>>def;
-					cout<<"Definici�n: "<<def;
+					cout<<"Definiciï¿½n: "<<def;
 					getline(Lec,deflong);
 					cout<<deflong<<endl;
 					cout<<"---------------------------------------------------"<<endl;
@@ -354,7 +362,6 @@ int main(){
 		}
 				
 	}while(op!=6);
-	system("cls");
 exit(1);	
 return 0;	
 }
