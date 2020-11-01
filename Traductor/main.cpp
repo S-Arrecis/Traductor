@@ -4,6 +4,7 @@
 #include<windows.h>
 #include<stdio.h>
 #include<conio.h>
+#include "Agregar.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ int main(){
 void error()
 	{
 		//system("pause");
-		cout<<"Opción incorrecta, presione enter para continuar...";
+		cout<<"Opciï¿½n incorrecta, presione enter para continuar...";
     	getch();
     	system("cls");
 	}
@@ -42,6 +43,8 @@ void error()
 
 	void Traductor(){
 		cout<<"TRADUCTOR"<<endl;
+		traducir();
+
 	}
 
 	void Editar(){
@@ -53,11 +56,11 @@ void menuinit(){
     	do
     	{
         	cout<<"--------------------Proyecto Traductor--------------------"<<endl;
-        	cout<<"Bienvenido al traductor, en el siguiente listado encontrara las opciones a escoger, \ningrese en la parte inferior el numero de la opción: \n"<<endl;
+        	cout<<"Bienvenido al traductor, en el siguiente listado encontrara las opciones a escoger, \ningrese en la parte inferior el numero de la opciï¿½n: \n"<<endl;
         	cout<<"1. Utilizar traductor"<<endl;
         	cout<<"2. Editar registros"<<endl;
         	cout<<"3. Salir \n"<<endl;
-        	cout<<"Seleccione opción: \n";
+        	cout<<"Seleccione opciï¿½n: \n";
         	cin>>seleccion;
         	system("cls");
         	switch(seleccion)
