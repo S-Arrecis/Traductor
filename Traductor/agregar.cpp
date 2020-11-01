@@ -15,7 +15,7 @@ int menu(){
 	cout<<"5. Eliminar registro"<<endl;
 	cout<<"6. Salir"<<endl;
 
-	cout<< "Opción: ";
+	cout<< "Opciï¿½n: ";
 	cin>>x;
 	return x;
 }
@@ -29,17 +29,17 @@ system("cls");
 	es.open("PAlabras.txt",ios::out|ios::app);
 	cout<<"Ingrese palabra en reservada"<<endl;
 	cin>>Pal;
-	cout<<"Ingrese traducción"<<endl;
+	cout<<"Ingrese traducciï¿½n"<<endl;
 	cin>>Tra;
 		fflush(stdin);
-	cout<<"Ingrese la definición"<<endl;
+	cout<<"Ingrese la definiciï¿½n"<<endl;
 	getline(cin,Def);
 	
 
 	
 	es<<Pal<<" "<<Tra<<" "<<Def<<endl;
 	es.close();
-	 cout<< "****Los registros han sido añadidos exitosamente*****"<<endl;
+	 cout<< "****Los registros han sido aï¿½adidos exitosamente*****"<<endl;
 	
 	system("pause");
 }
@@ -47,17 +47,21 @@ system("cls");
 void ver(ifstream &Lec){
 	system("cls");
 	string pal;
-	string tra;
+	string tra,tralong;
 	string def,deflong;
 	Lec.open("PAlabras.txt",ios::in);
 	if(Lec.is_open()){
 		Lec>>pal;
 		while (!Lec.eof()){
 			Lec>>tra;
-			Lec>>def;
+		
 			cout<<"Palabra en ingles: "<<pal<<endl;
-				cout<<"Palabra en español: "<<tra<<endl;
-					cout<<"Definición: "<<def;
+				cout<<"Palabra en espaï¿½ol: "<<tra;
+				getline(Lec,tralong);
+					cout<<tralong<<endl;
+					
+						Lec>>def;
+					cout<<"Definiciï¿½n: "<<def;
 					getline(Lec,deflong);
 					cout<<deflong<<endl;
 					cout<<"---------------------------------------------------"<<endl;
@@ -95,8 +99,8 @@ void  bus(ifstream &Lec){
 	
 		if(pal == id){
 				cout<<"Palabra en ingles:  "<<pal<<endl;
-				cout<<"Palabra en español: "<<ing<<endl;
-				cout<<"Definición:         "<<def;
+				cout<<"Palabra en espaï¿½ol: "<<ing<<endl;
+				cout<<"Definiciï¿½n:         "<<def;
 			
 			getline(Lec,deflong);
 				cout<<deflong<<endl;
@@ -152,11 +156,11 @@ void edit(ifstream & Lec){
 			Lec>>tra;
 			Lec>>def;
 				cout<<endl;
-				cout<<"La palabra reservada que ingresó contiene los siguientes registros: "<<endl;
+				cout<<"La palabra reservada que ingresï¿½ contiene los siguientes registros: "<<endl;
 				cout<<endl;
 				cout<<"Palabra reservada:       "<<pal<<endl;
-				cout<<"Traducción:              "<<tra<<endl;
-				cout<<"Definición:        	    "<<def;
+				cout<<"Traducciï¿½n:              "<<tra<<endl;
+				cout<<"Definiciï¿½n:        	    "<<def;
 				getline(Lec,deflong);
 				cout<<deflong<<endl;
 				cout<<"--------------------------"<<endl;
@@ -167,28 +171,28 @@ void edit(ifstream & Lec){
 				cout<<"Digite la nueva palabra reservada "<<endl;
 				cin>>pal2;
 				
-				cout<<"Digite la nueva traducción "<<endl;
+				cout<<"Digite la nueva traducciï¿½n "<<endl;
 				cin>>tra2;
 				fflush(stdin);
-				cout<<"Digite la nueva definición "<<endl;
+				cout<<"Digite la nueva definiciï¿½n "<<endl;
 				getline(cin,def2);
 	
 					temp<<pal2<<" "<<tra2<<" "<<def2<<" "<<endl;	
 			 cout<<endl;
 			 	system("cls");
-			 cout<<"****************Confirmar Selección*******************"<<endl;
+			 cout<<"****************Confirmar Selecciï¿½n*******************"<<endl;
 			 cout<<endl;
-			 cout<<"se editarán todos los registros correspondientes a esta palabra reservada "<<endl;
+			 cout<<"se editarï¿½n todos los registros correspondientes a esta palabra reservada "<<endl;
 			 cout<<endl;
 			 
 				cout<<"1. De acuerdo"<<endl;
 				cout<<"2. No editar registros"<<endl;	
-				cout<<"Opción: ";
+				cout<<"Opciï¿½n: ";
 				cin>>opc;
 				cout<<endl;
 	
 				if (opc!=1){
-					cout<<"No se edito ningún registro"<<endl;
+					cout<<"No se edito ningï¿½n registro"<<endl;
 					temp.close();
 						remove("temp.txt");
 						system("pause");
@@ -273,16 +277,16 @@ void elim(ifstream &Lec){
 			Lec>>tra;
 			Lec>>def;
 				cout<<endl;
-				cout<<"La palabra reservada que ingresó contiene los siguientes registros: "<<endl;
+				cout<<"La palabra reservada que ingresï¿½ contiene los siguientes registros: "<<endl;
 				cout<<endl;
 				cout<<"Palabra reservada:       "<<pal<<endl;
-				cout<<"Traducción:              "<<tra<<endl;
-				cout<<"Definición:        	    "<<def;
+				cout<<"Traducciï¿½n:              "<<tra<<endl;
+				cout<<"Definiciï¿½n:        	    "<<def;
 				getline(Lec,deflong);
 				cout<<deflong<<endl;
 				cout<<"--------------------------"<<endl;
 		
-			 cout<<"Se eliminarÁn todos los registros correspondientes a esta palabra reservada "<<endl;
+			 cout<<"Se eliminarï¿½n todos los registros correspondientes a esta palabra reservada "<<endl;
 			 
 				cout<<"1. De acuerdo"<<endl;
 				cout<<"2. No eliminar registros"<<endl;	
@@ -290,7 +294,7 @@ void elim(ifstream &Lec){
 				cout<<endl;
 	
 				if (opc!=1){
-					cout<<"No se eliminÓ ningÚn registro"<<endl;
+					cout<<"No se eliminï¿½ ningï¿½n registro"<<endl;
 						temp.close();
 								remove("temp.txt");
 								
@@ -350,6 +354,7 @@ int main(){
 		}
 				
 	}while(op!=6);
+	system("cls");
 exit(1);	
 return 0;	
 }
