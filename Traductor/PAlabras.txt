@@ -1,61 +1,184 @@
-ASM Ensamblador Se    utiliza para incluir directamente cÛdigo ensamblador en su programa C++. El uso correcto de asm depende de la implementaciÛn. 
-Auto Autom·tica Declara    una variable como de almacenamiento autom·tico.
-Bool Booleano Nombre    de tipo de datos booleano.
-Break Rotura Quebrar    (salir) de un bucle.
-Case Caso Define    un caso/etiqueta en una expresiÛn de switch.
-Catch Captura Captura    la excepciÛn lanzada por un throw.
-Char Caracter Nombre    del tipo de datos caracter.
-Class Clase Declara    una clase.
-Const Constante Declara    que la variable, funciÛn o referencia no puede ser modificado.
-Const_cast Constante_cast ConversiÛn    que remueve o agrega calificaciones const o volatile a un objeto.
-Continue Continuar Saltarse    la iteraciÛn en un bucle.
-Default Defecto Gestionar    el caso por defecto en una instrucciÛn switch.
-Delete Borrar Designar    memoria que ha sido reservada din·micamente.
-Do Hacer Inicio    de una construcciÛn de bucle do-while.
-Double Doble Nombre    del tipo de datos de punto flotante.
-Dynamic_cast Dinamico_cast Adapta    un puntero de un tipo base a un tipo de datos derivado.
-Else De_otro_modo Ruta    alternativa para una instrucciÛn if.
-Enum Enumerador Define    grupos de elementos comunes (conjuntos).
-Explicit Explicito Incapacitar    un constructor unario de una clase para conversiones implÌcitas.
-Extern Externo Este    especificador se usa para indicar que el almacenamiento y valor de una variable o la definiciÛn de una funciÛn est·n definidos en otro modulo o fichero fuente.
-False Falso Representa    el valor booleano falso.
-Float Flotante Las    variables de este tipo almacenan n˙meros en formato de coma flotante, esto es, contienen un valor de mantisa y otro de exponente, que, para entendernos, codifican n˙meros con decimales.
-For Para Estructura    de control iterativa, que nos permite ejecutar de manera repetitiva un bloque de instrucciones.
-Friend Amiga Designar    una funciÛn no-miembro como amiga de una clase.
-Goto Ir Sirve    para transferir incondicionalmente el control del mismo a la primera instrucciÛn despuÈs de una etiqueta.
-If Si Ejecutar    cÛdigo condicionado al resultado de un test.
-Inline En_linea Declarar    que una funciÛn ser· expandida.
-Int Entero Nombre    del tipo de datos entero.
-Long Largo Nombre    del tipo de datos entero largo.
-Mutable Mudable Quita    la propiedad const de un campo de un objeto cuando este es const.
-Namespace Espacio_de_nombre Un    espacio de nombres es un contenedor abstracto en el que un grupo de uno o m·s identificadores ˙nicos pueden existir. Un identificador definido en un espacio de nombres est· asociado con ese espacio de nombres.
-New Nuevo Proporciona    espacio de almacenamiento persistente, similar pero superior a la funciÛn de LibrerÌa Est·ndar malloc. Este operador permite crear un objeto de cualquier tipo, incluyendo tipos definidos por el usuario, y devuelve un puntero (del tipo adecuado) al objeto creado. 
-Operator Operador Un    operador es un sÌmbolo que le dice al compilador que realice manipulaciones matem·ticas o lÛgicas especificas. C ++ es rico en operadores integrados y proporciona los siguientes tipos de operadores: operadores aritmÈticos, operadores relacionales operadores lÛgicos, operadores bit a bit, operadores de AsignaciÛn, operadores varios. 
-Private Privado Es    un especificador de acceso. Cuando un miembro de una clase es declarado privado (private) es inaccesible no solo desde otras clases y otras partes del programa, sino tambiÈn desde sus clases derivadas.
-Protected protegido Es    un especificador de acceso. Los miembros de datos que son declarados protegidos (protected) son ˙nicamente accesibles por funciones miembro de la clase, pero no se pueden acceder a ellos desde otras clases.
-Public P˙blico Es    un especificador de acceso. Si se declara p˙blico (public) un miembro de una clase, se permitir· el acceso a tal miembro desde dentro y fuera de la clase.
-Register Registro La    palabra "register" est· relacionada con el hecho de que un compilador puede elegir almacenar una variable de este tipo en un registro de CPU para que se pueda acceder a ella en menos ciclos de reloj. Fue desaprobado a partir de C ++ 11. 
-Reinterpret_cast Reinterpretar_molde Es    un tipo de operador de conversiÛn. Se utiliza para convertir un puntero de otro puntero de cualquier tipo, sin importar si la clase est· relacionada entre sÌ o no.
-Return Retornar Una    de sus funciones es forzar la salida inmediata de la funciÛn en la que se encuentra. Es decir, hace que la ejecuciÛn del programa vuelva al cÛdigo que llamo a la funciÛn. En segundo lugar, se puede utilizar para devolver un valor.
-Short Corto Es    una modificaciÛn de los tipos de variables. El tipo entero short tiene el tamaÒo de 2 bytes (16 bits).
-Signed Indicar El    modificador de tipo signed define que el valor de una variable numÈrica puede ser positivo o negativo. El efecto que tiene este modificador, es que parte de la capacidad de almacenamiento del tipo base al que se aplica, se utiliza para especificar el signo, por lo que el m·ximo valor absoluto que es posible guardar es menor que el correspondiente valor unsigned del mismo tipo base.
-Sizeof TamaÒo_de Es    un operador de tiempo de compilaciÛn, que se utiliza para determinar la variable o el tipo de datos en bytes. Se puede utilizar para obtener una clase, estructura, uniÛn, y el otro tamaÒo de tipo de datos definido por el usuario.
-Static Est·tico Es    una variable que ha sido ubicada est·ticamente y cuyo tiempo de vida se extiende durante toda la ejecuciÛn del programa. Normalmente una variable est·tica tiene un ·mbito m·s amplio que otras variables.
-Static_cast Molde_est·tico Este    operador realiza una conversiÛn de tipo durante la compilaciÛn del programa, de modo que no crea m·s cÛdigo durante la ejecuciÛn, descargando esa tarea en el compilador, por ejemplo, convertir un puntero a un objeto de una clase derivada a un puntero a una clase base p˙blica.
-Struct Estructura Es    un registro de agrupaciÛn de datos, los cuales no necesariamente son del mismo tipo. Se definen con la palabra struct.
-Switch Cambiar Son    una estructura de control condicional, que permite definir m˙ltiples casos que puede llegar a cumplir una variable cualquiera, y que acciÛn tomar en cualquiera de estas situaciones, incluso es posible determinar que acciÛn llevar a cabo en caso de no cumplir ninguna de las condiciones dadas.
-Template Plantilla Una    plantilla es un fragmento de cÛdigo con algunos par·metros libres que se convertir·n en una clase, funciÛn o variable concreta cuando se especifiquen todos los par·metros. 
-This Este El    puntero this tiene asociado cada objeto que apunta a sÌ mismo. Este puntero se usa para acceder a sus miembros. 
-Throw Lanzar Es    una de las tres sentencias del mecanismo orientado a objetos (try throw cach), este mecanismo sirve para controlar excepciones, la palabra reservada throw se aloja dentro del bloque try su funciÛn ser· lanzar una excepciÛn si dentro del bloque try se produce un algo que no se espera.
-True Verdadero Esta    palabra clave es uno de los dos valores para una variable de tipo bool o una expresiÛn condicional, true tiene el valor constante predefinido de verdadero (numÈricamente es uno). 
-Try Tratar Es    una de las tres sentencias del mecanismo orientado a objetos (try throw cach), este mecanismo sirve para controlar excepciones, el bloque try sirve para evaluar una o m·s expresiones. 
-Typedef Tipo_por_defecto Es    una palabrareservada, su funciÛn es asignar un nombre alternativo a tipos existentes, a menudo cuando su declaraciÛn normal es aparatosa, potencialmente confusa o probablemente variable de una implementaciÛn a otra.
-Typeid tipo_de_identidad Es    una palabra clave que identifica un operador con el que puede obtenerse el tipo de objetos y expresiones en tiempo de ejecuciÛn. Permite comprobar si un objeto es de un tipo particular, y si dos objetos son del mismo tipo. Este tipo de identificaciÛn en tiempo de ejecuciÛn es conocido abreviadamente como RTTI.
-Typename Escribe_un_nombre Es    una palabra clave que se usa al escribir plantillas. Se utiliza para especificar que un nombre dependiente en una definiciÛn o declaraciÛn de plantilla es un tipo.
-Union UniÛn Una    uniÛn es un tipo de dato derivado, como una estructura, con miembros que comparten el mismo espacio de almacenamiento. Una variabe de tipo uniÛn puede contener (en momentos diferentes) objetos de diferentes tipos y tamaÒos.
-Unsigned Sin_signo Es    una modificaciÛn de los tipos de datos, esta modificaciÛn har· que siempre se emplee valores enteros positivos, nunca negativos. Esta modificaciÛn sirve para aprovechar el m·s amplio rango que dan estos n˙meros al aprovechar el bit que normalmente se emplea como signo.
-Using Utilizar Crea    un alias para un espacio de nombres o importa tipos definidos en otros espacios de nombres.
-Virtual Virtual Una    funciÛn virtual o mÈtodo virtual es una funciÛn cuyo comportamiento, al ser declarado "virtual", es determinado por la definiciÛn de una funciÛn con la misma cabecera en alguna de sus subclases.
-Void Vacio Define    el concepto de no existencia o no atribuciÛn de un tipo en una variable o declaraciÛn. Es decir, una funciÛn declarada como void no devolver· ning˙n valor.  Esta palabra reservada tambiÈn puede usarse para indicar que una funciÛn no recibe par·metros.
-Volatile Volatile Se    dice al compilador que el valor de la variable puede cambiar en cualquier momento como resultado de condiciones externas, no solo como resultado del flujo de control del programa.
-While Mientras Es    un ciclo repetitivo basado en los resultados de una expresiÛn lÛgica; el propÛsito es repetir un bloque de cÛdigo mientras una condiciÛn se mantenga verdadera.
+ASM	
+Ensamblador
+Se utiliza para incluir directamente c√≥digo ensamblador en su programa C++. El uso correcto de asm depende de la implementaci√≥n.
+Auto 
+Autom√°tica	
+Declara una variable como de almacenamiento autom√°tico.
+Bool 
+Booleano
+Nombre de tipo de datos booleano.
+Break 
+Rotura
+Quebrar (salir) de un bucle.
+Case
+Caso 
+Define un caso/etiqueta en una expresi√≥n de switch.
+Catch 
+Captura 
+Captura la excepci√≥n lanzada por un throw.
+Char 
+Car√°cter 
+Nombre del tipo de datos car√°cter.
+Class
+Clase	
+Declara una clase.
+Const 
+Constante 
+Declara que la variable, funci√≥n o referencia no puede ser modificado.
+Const_cast
+Constante_cast	
+Conversi√≥n que remueve o agrega calificaciones const o volatile a un objeto.
+Continue	
+Continuar
+Saltarse la iteraci√≥n en un bucle.
+Default	
+Defecto	
+Gestionar el caso por defecto en una instrucci√≥n switch.
+Delete	
+Borrar
+Designar memoria que ha sido reservada din√°micamente.
+Do	
+Hacer	
+Inicio de una construcci√≥n de bucle do-while.
+Double	
+Doble	
+Nombre del tipo de datos de punto flotante.
+Dynamic_cast	
+Dinamico_cast	
+Adapta un puntero de un tipo base a un tipo de datos derivado.
+Else
+De otro modo	
+Ruta alternativa para una instrucci√≥n if.
+Enum	
+Enumerador	
+Define grupos de elementos comunes (conjuntos).
+Explicit	
+Explicito	
+Incapacitar un constructor unario de una clase para conversiones impl√≠citas.
+Extern
+Externo	
+Este especificador se usa para indicar que el almacenamiento y valor de una variable o la definici√≥n de una funci√≥n est√°n definidos en otro modulo o fichero fuente.
+False
+Falso	
+Representa el valor booleano falso.
+Float	
+Flotante	
+Las variables de este tipo almacenan n√∫meros en formato de coma flotante, esto es, contienen un valor de mantisa y otro de exponente, que, para entendernos, codifican n√∫meros con decimales.
+For
+Para	
+Estructura de control iterativa, que nos permite ejecutar de manera repetitiva un bloque de instrucciones.
+Friend	
+Amiga	
+Designar una funci√≥n no-miembro como amiga de una clase.
+Goto	
+Ir	
+Sirve para transferir incondicionalmente el control del mismo a la primera instrucci√≥n despu√©s de una etiqueta.
+If	
+Si	
+Ejecutar c√≥digo condicionado al resultado de un test.
+Inline	
+En L√≠nea	
+Declarar que una funci√≥n ser√° expandida.
+Int	
+Entero	
+Nombre del tipo de datos entero.
+Long	
+Largo	
+Nombre del tipo de datos entero largo.
+Mutable	
+Mudable	
+Quita la propiedad const de un campo de un objeto cuando este es const.
+Namespace 
+Espacio de nombre 
+Un espacio de nombres es un contenedor abstracto en el que un grupo de uno o m√°s identificadores √∫nicos pueden existir. Un identificador definido en un espacio de nombres est√° asociado con ese espacio de nombres.
+New 
+Nuevo
+Proporciona espacio de almacenamiento persistente, similar pero superior a la funci√≥n de Librer√≠a Est√°ndar malloc. Este operador permite crear un objeto de cualquier tipo, incluyendo tipos definidos por el usuario, y devuelve un puntero (del tipo adecuado) al objeto creado. 
+Operator
+Operador
+Un operador es un s√≠mbolo que le dice al compilador que realice manipulaciones matem√°ticas o l√≥gicas espec√≠ficas. C ++ es rico en operadores integrados y proporciona los siguientes tipos de operadores: operadores aritm√©ticos, operadores relacionales operadores l√≥gicos, operadores bit a bit, operadores de Asignaci√≥n, operadores varios. 
+Private
+Privado
+Es un especificador de acceso. Cuando un miembro de una clase es declarado privado (private) es inaccesible no solo desde otras clases y otras partes del programa, sino tambi√©n desde sus clases derivadas.
+Protected
+protegido 
+Es un especificador de acceso. Los miembros de datos que son declarados protegidos (protected) son √∫nicamente accesibles por funciones miembro de la clase, pero no se pueden acceder a ellos desde otras clases.
+Public
+P√∫blico
+Es un especificador de acceso. Si se declara p√∫blico (public) un miembro de una clase, se permitir√° el acceso a tal miembro desde dentro y fuera de la clase.
+Register
+Registro 
+La palabra "register" est√° relacionada con el hecho de que un compilador puede elegir almacenar una variable de este tipo en un registro de CPU para que se pueda acceder a ella en menos ciclos de reloj. Fue desaprobado a partir de C ++ 11. 
+Reinterpret_cast
+Reinterpretar molde
+Es un tipo de operador de conversi√≥n. Se utiliza para convertir un puntero de otro puntero de cualquier tipo, sin importar si la clase est√° relacionada entre s√≠ o no.
+Return
+Retornar
+Una de sus funciones es forzar la salida inmediata de la funci√≥n en la que se encuentra. Es decir, hace que la ejecuci√≥n del programa vuelva al c√≥digo que llamo a la funci√≥n. En segundo lugar, se puede utilizar para devolver un valor.
+Short
+Corto
+Es una modificaci√≥n de los tipos de variables. El tipo entero short tiene el tama√±o de 2 bytes (16 bits).
+Signed
+Indicar
+El modificador de tipo signed define que el valor de una variable num√©rica puede ser positivo o negativo. El efecto que tiene este modificador, es que parte de la capacidad de almacenamiento del tipo base al que se aplica, se utiliza para especificar el signo, por lo que el m√°ximo valor absoluto que es posible guardar es menor que el correspondiente valor unsigned del mismo tipo base.
+Sizeof
+Tama√±o de
+Es un operador de tiempo de compilaci√≥n, que se utiliza para determinar la variable o el tipo de datos en bytes. Se puede utilizar para obtener una clase, estructura, uni√≥n, y el otro tama√±o de tipo de datos definido por el usuario.
+Static
+Est√°tico 
+Es una variable que ha sido ubicada est√°ticamente y cuyo tiempo de vida se extiende durante toda la ejecuci√≥n del programa. Normalmente una variable est√°tica tiene un √°mbito m√°s amplio que otras variables.
+Static_cast
+Molde est√°tico
+Este operador realiza una conversi√≥n de tipo durante la compilaci√≥n del programa, de modo que no crea m√°s c√≥digo durante la ejecuci√≥n, descargando esa tarea en el compilador, por ejemplo, convertir un puntero a un objeto de una clase derivada a un puntero a una clase base p√∫blica.
+Struct
+Estructura
+Es un registro de agrupaci√≥n de datos, los cuales no necesariamente son del mismo tipo. Se definen con la palabra "struct".
+Switch
+Cambiar
+Son una estructura de control condicional, que permite definir m√∫ltiples casos que puede llegar a cumplir una variable cualquiera, y qu√© acci√≥n tomar en cualquiera de estas situaciones, incluso es posible determinar qu√© acci√≥n llevar a cabo en caso de no cumplir ninguna de las condiciones dadas.
+Template
+Plantilla
+Una plantilla es un fragmento de c√≥digo con algunos par√°metros libres que se convertir√°n en una clase, funci√≥n o variable concreta cuando se especifiquen todos los par√°metros. 
+This
+Este
+El puntero "this" tiene asociado cada objeto que apunta a s√≠ mismo. Este puntero se usa para acceder a sus miembros. 
+Throw
+Lanzar
+Es una de las tres sentencias del mecanismo orientado a objetos "try throw cach", este mecanismo sirve para controlar excepciones, la palabra reservada "throw" se aloja dentro del bloque "try" su funci√≥n ser√° lanzar una excepci√≥n si dentro del bloque "try" se produce un "algo que no se espera".
+True
+Verdadero
+Esta palabra clave es uno de los dos valores para una variable de tipo bool o una expresi√≥n condicional, true tiene el valor constante predefinido de "verdadero" (num√©ricamente es uno). 
+Try
+Tratar 
+Es una de las tres sentencias del mecanismo orientado a objetos "try throw cach", este mecanismo sirve para controlar excepciones, el bloque "try" sirve para evaluar una o m√°s expresiones. 
+Typedef
+Tipo por defecto
+Es una palabra reservada, su funci√≥n es asignar un nombre alternativo a tipos existentes, a menudo cuando su declaraci√≥n normal es aparatosa, potencialmente confusa o probablemente variable de una implementaci√≥n a otra.
+Typeid
+tipo de identidad
+Es una palabra clave que identifica un operador con el que puede obtenerse el tipo de objetos y expresiones en tiempo de ejecuci√≥n. Permite comprobar si un objeto es de un tipo particular, y si dos objetos son del mismo tipo. Este tipo de identificaci√≥n en tiempo de ejecuci√≥n es conocido abreviadamente como RTTI.
+Typename
+Escribe un nombre
+Es una palabra clave que se usa al escribir plantillas. Se utiliza para especificar que un nombre dependiente en una definici√≥n o declaraci√≥n de plantilla es un tipo.
+Union
+Uni√≥n
+Una "union" es un tipo de dato derivado, como una estructura, con miembros que comparten el mismo espacio de almacenamiento. Una variable de tipo "union" puede contener (en momentos diferentes) objetos de diferentes tipos y tama√±os.
+Unsigned
+Sin signo
+Es una modificaci√≥n de los tipos de datos, esta modificaci√≥n har√° que siempre se emplee valores enteros positivos, nunca negativos. Esta modificaci√≥n sirve para aprovechar el mas amplio rango que dan estos n√∫meros al aprovechar el bit que normalmente se emplea como signo.
+Using
+Utilizar
+Crea un alias para un espacio de nombres o importa tipos definidos en otros espacios de nombres.
+Virtual
+Virtual
+Una funci√≥n virtual o m√©todo virtual es una funci√≥n cuyo comportamiento, al ser declarado "virtual", es determinado por la definici√≥n de una funci√≥n con la misma cabecera en alguna de sus subclases.
+Void
+Vac√≠o
+Define el concepto de no existencia o no atribuci√≥n de un tipo en una variable o declaraci√≥n. Es decir, una funci√≥n declarada como void no devolver√° ning√∫n valor.  Esta palabra reservada tambi√©n puede usarse para indicar que una funci√≥n no recibe par√°metros.
+Volatile
+Volatile
+Se dice al compilador que el valor de la variable puede cambiar en cualquier momento como resultado de condiciones externas, no solo como resultado del flujo de control del programa.
+While
+Mientras 
+Es un ciclo repetitivo basado en los resultados de una expresi√≥n l√≥gica; el prop√≥sito es repetir un bloque de c√≥digo mientras una condici√≥n se mantenga verdadera.
+
