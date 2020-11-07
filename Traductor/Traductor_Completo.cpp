@@ -1,12 +1,11 @@
-//#include "mprincipal.h"
+
 #include<locale.h>
 #include<iostream>
 #include<fstream>
 #include <windows.h>
-#include "Agregar.h"
+//#include "Agregar.h"
 #include<stdio.h>
 #include<conio.h>
-
 
 using namespace std;
 
@@ -15,6 +14,9 @@ void error();
 void stop();
 void Traductor();
 void Editar();
+void proceso();
+void motstrar_traduccion();
+
 
 bool iniciado = true;
 
@@ -34,7 +36,6 @@ int menu(){
 	return x;
 }
 
-
 void agregar(ofstream &es) {
 system("cls");	
 	string Pal;
@@ -52,8 +53,8 @@ system("cls");
 	cout<<"Ingrese la definici�n"<<endl;
 	getline(cin,Def);
 	
-	agregarIngles(Pal);
-	agregarTraduccion(Tra);
+	//agregarIngles(Pal);
+	//agregarTraduccion(Tra);
 	
 
 	
@@ -392,8 +393,6 @@ cout<<"*********El registro se ha eliminado exitosamente**********"<<endl;
 			system("pause");		
  } 
 
-
-
 void error()
 	{
 		//system("pause");
@@ -410,10 +409,99 @@ void error()
 	}
 
 	void Traductor(){
-		cout<<"TRADUCTOR"<<endl;
-		traducir();
+		remove("texto_a_traducir.txt");
+		string palabrat;
+		ofstream Esct;
 
-	}
+		Esct.open("texto_a_traducir.txt",ios::out);
+
+		cout<<"TRADUCTOR"<<endl;
+		cout<<"----------"<<endl;
+cout<<"Ingrese la porci�n de c�digo que desea traducir:"<<endl;
+	
+		while(palabrat !="$"){
+		getline(cin,palabrat);
+		Esct<<palabrat<<endl;
+		}
+
+		Esct.close();
+proceso();
+ }
+
+
+void proceso(){
+	string palg;
+	string Busqueda;
+	string linea, lineal;	
+	ifstream Esct;
+	ofstream Lect;
+	ifstream Lec;
+
+ Esct.open("texto_a_traducir.txt",ios::in );
+	Lect.open("Texto Traducido",ios::out);
+		Lec.open("PAlabras.txt",ios::in );
+
+
+ while(!Esct.eof()){
+
+	Esct>>linea;
+
+while(!Lec.eof()){
+
+	Lec>>Busqueda;
+
+//cout<<linea<<endl;
+//cout<<Busqueda<<endl;
+//	cout<<endl;
+
+
+if (linea==Busqueda){
+
+Lec>>Busqueda;
+
+Lect<<Busqueda<<endl;
+
+	
+}
+}
+
+
+
+
+}
+
+Lect.close();
+
+Lec.close();
+remove("texto_a_traducir.txt");
+motstrar_traduccion();
+}
+
+
+void motstrar_traduccion(){
+string texto;
+ifstream Lect;
+
+
+Lect.open("Texto Traducido",ios::out);
+
+ Lect>>texto;
+cout<<"------texto traducido--------"<<endl;
+cout<<texto<<endl;
+
+Lect.close();
+
+remove("Texto Traducido");
+remove("texto_a_traducir.txt");
+system("pause");
+menuinit();
+
+
+}
+
+
+
+
 
 	void Editar(){
 		iniciado = false;
@@ -422,6 +510,7 @@ void error()
 	}
 
 void menuinit(){
+remove("texto_a_traducir.txt");
 	system("cls");
 
 		setlocale(LC_ALL, "Spanish");
@@ -459,10 +548,8 @@ void menuinit(){
 
 	
 	}
+
 int main(){
-
-
-
 while (iniciado == true){	
  menuinit();
 }
